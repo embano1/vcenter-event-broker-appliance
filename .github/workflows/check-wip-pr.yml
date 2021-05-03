@@ -6,9 +6,21 @@ on:
     types: [opened, synchronize, reopened, edited]
 
 jobs:
-  WIP:
+  check:
     runs-on: ubuntu-latest
-    if: startsWith(github.event.pull_request.title, 'WIP')
     steps:
-      - name: Must Exit
-        run: exit 1
+      - name: Check WIP in PR Title
+        env:
+          # will match any PR title starting with WIP:
+          MATCH: "^WIP"
+        run: |
+          # case-insensitive
+          shopt -s nocasematch
+
+          if [[ "${{ github.event.pull_request.title }}" =~ ${MATCH} ]]; then
+              echo "::error::PR marked as work in progress"
+              exit 1
+          fi
+
+          # unset nocasematch option
+          shopt -u nocasematch
