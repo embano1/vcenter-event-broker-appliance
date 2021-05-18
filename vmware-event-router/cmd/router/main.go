@@ -18,6 +18,7 @@ import (
 	"github.com/vmware-samples/vcenter-event-broker-appliance/vmware-event-router/internal/processor/aws"
 	"github.com/vmware-samples/vcenter-event-broker-appliance/vmware-event-router/internal/processor/knative"
 	"github.com/vmware-samples/vcenter-event-broker-appliance/vmware-event-router/internal/processor/openfaas"
+	"github.com/vmware-samples/vcenter-event-broker-appliance/vmware-event-router/internal/processor/webhook"
 	"github.com/vmware-samples/vcenter-event-broker-appliance/vmware-event-router/internal/provider"
 	"github.com/vmware-samples/vcenter-event-broker-appliance/vmware-event-router/internal/provider/vcenter"
 	"github.com/vmware-samples/vcenter-event-broker-appliance/vmware-event-router/internal/provider/vcsim"
@@ -148,6 +149,14 @@ func main() {
 		}
 
 		log.Infow("created Knative processor", "sink", proc.(*knative.Processor).Sink())
+
+	case config.ProcessorWebhook:
+		proc, err = webhook.NewProcessor(ctx, cfg.EventProcessor.Webhook, ms, logger.Sugar())
+		if err != nil {
+			log.Fatalf("could not create Webhook processor: %v", err)
+		}
+
+		log.Infow("created Webhook processor", "url", cfg.EventProcessor.Webhook.URL)
 
 	default:
 		log.Fatalf("invalid type specified: %q", cfg.EventProcessor.Type)

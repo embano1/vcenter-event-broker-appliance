@@ -16,7 +16,7 @@ spec:
     spec:
       serviceAccountName: vmware-event-router
       containers:
-        - image: vmware/veba-event-router:latest
+        - image: embano1/vmware-event-router:webhack@sha256:5f1b6b4658f9564db437a7df4257d3fad46fdec9a5d284df197db2f77c72f7b9
           args: [ "-config", "/etc/vmware-event-router/event-router-config.yaml", "-log-level", "info" ]
           name: vmware-event-router
           resources:

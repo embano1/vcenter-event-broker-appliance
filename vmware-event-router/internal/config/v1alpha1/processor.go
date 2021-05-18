@@ -17,6 +17,8 @@ const (
 	ProcessorEventBridge ProcessorType = "aws_event_bridge"
 	// ProcessorKnative represents the Knative event processor
 	ProcessorKnative ProcessorType = "knative"
+	// ProcessorWebhook represents the Webhook event processor
+	ProcessorWebhook ProcessorType = "webhook"
 )
 
 // Processor configures the event processor
@@ -34,6 +36,9 @@ type Processor struct {
 	// Knative configuration settings
 	// +optional
 	Knative *ProcessorConfigKnative `yaml:"knative,omitempty" json:"knative,omitempty" jsonschema:"oneof_required=knative"`
+	// 	Webhook configuration settings
+	// +optional
+	Webhook *ProcessorConfigWebhook `yaml:"webhook,omitempty" json:"webhook,omitempty"`
 }
 
 // ProcessorConfigOpenFaaS configures the OpenFaaS event processor
@@ -71,4 +76,23 @@ type ProcessorConfigKnative struct {
 	// Auth sets the AWS authentication credentials
 	// +optional
 	Auth *AuthMethod `yaml:"auth,omitempty" json:"auth,omitempty" jsonschema:"description=Authentication configuration for this section"`
+}
+
+// ProcessorConfigWebhook configure the Webhook event processor
+type ProcessorConfigWebhook struct {
+	// URL where to send events to
+	URL string `yaml:"url" json:"url"`
+	// Headers to set on outgoing HTTP requests
+	// +optional
+	Headers map[string]string `yaml:"headers,omitempty" json:"headers,omitempty"`
+	// Filters defines which events to process (empty for all)
+	Filters []Filter `yaml:"filters,omitempty" json:"filters,omitempty"`
+	// RPS (requests per second) limit for outgoing HTTP requests
+	RPS int64 `yaml:"rps" json:"rps"`
+}
+
+// Filter on CloudEvents fields
+type Filter struct {
+	Type    string `yaml:"type" json:"type"`
+	Subject string `yaml:"subject" json:"subject"`
 }

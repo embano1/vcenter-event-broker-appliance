@@ -1,0 +1,39 @@
+apiVersion: event-router.vmware.com/v1alpha1
+kind: RouterConfig
+metadata:
+  name: router-config-aws
+  labels:
+    key: value
+eventProvider:
+  type: vcenter
+  name: veba-demo-vc-01
+  vcenter:
+    address: https://localhost:8989/sdk
+    insecureSSL: true
+    checkpoint: false
+    auth:
+      type: basic_auth
+      basicAuth:
+        username: user
+        password: pass
+eventProcessor:
+  type: webhook
+  name: veba-demo-webhook
+  webhook:
+    url: https://hooks.slack.com/url
+    rps: 2
+#    filters:
+#      - subject: "VmPoweredOffEvent"
+#      - subject: "VmPoweredOnEvent"
+#      - type: "com.vmware.event.router/event"
+metricsProvider:
+  type: default
+  name: veba-demo-metrics
+  default:
+    bindAddress: "0.0.0.0:8082"
+# disabling auth for the metrics endpoint
+#    auth:
+#      type: basic_auth
+#      basicAuth:
+#        username: admin
+#        password: ReplaceMe
