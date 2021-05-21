@@ -1,11 +1,72 @@
 
-<a name="v0.6.0"></a>
-## [Release v0.6.0](https://github.com/vmware-samples/vcenter-event-broker-appliance/compare/v0.5.0...v0.6.0)
+<a name="v0.6.1"></a>
+## [Release v0.6.1](https://github.com/vmware-samples/vcenter-event-broker-appliance/compare/v0.3.0...v0.6.1)
 
-> Release Date: 2021-04-20
+> Release Date: 2021-05-21
+
+### 🐞 Fix
+
+- [1c78537]	Fix command in adding trusted root CA cert documentation
+- [a8c1976]	Update documentation to reflect minimum of vCenter Server 7.0 for VEBA UI
+- [0356447]	Wrong association in greeting
+
+### 💫 Feature
+
+- [eefe0d2]	Document Trusted Root Certificate support w/VMware Event Router
+- [b2507eb]	Add router support for custom certificates
+- [4d503c9]	Add Helm Option for Knative
+
+### 📃 Documentation
+
+- [8bb8949]	Update Knative Function list w/PowerShell Email Example
+
+### 🧹 Chore
+
+- [2c0ebf1]	Add CHANGELOG workflow
+- [a5a91d0]	Daily build and helm verification
+- [2ef2aa1]	Automate CHANGELOG
+- [d0d93c8]	Add issue greeting
 
 ### 📖 Commits
 
+- [2c0ebf1]	chore: Add CHANGELOG workflow
+- [ceaa976]	Update stale action
+- [a5a91d0]	chore: Daily build and helm verification
+- [c3b670d]	Clarify vcsim deprecation
+- [8bb8949]	docs: Update Knative Function list w/PowerShell Email Example
+- [761d41c]	Add docs section to CHANGELOG
+- [1c78537]	fix: Fix command in adding trusted root CA cert documentation
+- [a8c1976]	fix: Update documentation to reflect minimum of vCenter Server 7.0 for VEBA UI
+- [e859262]	Updated docs with new URL www.williamlam.com
+- [eefe0d2]	feat: Document Trusted Root Certificate support w/VMware Event Router
+- [0356447]	fix: Wrong association in greeting
+- [2ef2aa1]	chore: Automate CHANGELOG
+- [b2507eb]	feat: Add router support for custom certificates
+- [5e7c2e4]	Document simplified steps for replacing TLS certifcate in VEBA
+- [121c688]	Bump Helm chart version to v0.6.2
+- [f03672e]	Add v0.6.2 Chart Pre-Release
+- [4d503c9]	feat: Add Helm Option for Knative
+- [d0d93c8]	chore: Add issue greeting
+- [168abeb]	Example Knative PowerShell Email Function
+- [11a83cd]	Update WIP Action
+- [7f8177f]	Fix sed command
+- [5169b39]	Configure container log rotation
+- [bf21bbd]	Add support for custom VEBA TLS Certificate
+- [d288918]	Refactor Ingress Configuration based on Processor Type
+- [46d7e5d]	Bump urllib3 in /examples/openfaas/python/tagging/handler
+- [8fa4b40]	Bump urllib3 in /examples/openfaas/python/invoke-rest-api/handler
+- [db9399e]	Bump urllib3
+- [c778a0a]	VEBA UI fix for incorrect TLS miss-match
+- [33ed689]	Add dispatcher container image to VEBA BOM for RabbitMQ Broker deployment
+- [c7da5cc]	Add correct AWS Event Bridge Type into Event Router Config
+- [6f33d65]	Update the correct cert name for TLS replacement
+- [016bd9a]	Document multiple Knative Triggers
+- [166f396]	Document minimum vSphere Privileges for VEBA UI
+- [7a24aef]	Verify Helm chart
+- [b567d65]	Update helm chart
+- [72bb151]	Fix [#355](https://github.com/vmware-samples/vcenter-event-broker-appliance/issues/355) by helm-ignoring releases folder
+- [e234437]	Remove * in front of Closes keyword + Fix Typo
+- [7f246ef]	Add Windows specific Docker command to kn-ps-slack function
 - [2088553]	Bump version to v0.6.0 for release
 - [831193f]	Clarifying Knative OVF description + Docs
 - [8246c90]	Adding missing vmware-functions NS to secret example
@@ -38,14 +99,6 @@
 - [78a5470]	Fix metadata label
 - [2ed89a4]	Added firewall requirement for access to vCenter API
 - [9119e38]	Fixed handling of xml predefined entities passed via ovfEnv
-
-<a name="v0.5.0"></a>
-## [Release v0.5.0](https://github.com/vmware-samples/vcenter-event-broker-appliance/compare/v0.4.1...v0.5.0)
-
-> Release Date: 2020-12-11
-
-### 📖 Commits
-
 - [d2876b0]	Remove test from output target
 - [7666144]	Update VEBA BOM to final release
 - [0a38742]	Update Helm chart to final release
@@ -125,6 +178,7 @@
 - [b907174]	Github Template to standardized Pull Requests
 - [0f3c606]	Global search and replace on flings URL - vcenter->vmware
 - [f7fcc4d]	Search functionality added to Documentation
+- [4bf45d7]	Updating docs to reflect changes with Proxy and SSH
 - [7b5be22]	VEBA Issue and Feature Enhancement Templates
 - [88bd3f2]	Update K8s, Contour, OpenFaaS to latest stable release
 - [8895230]	Refactor VEBA components to reference BOM file
@@ -132,15 +186,6 @@
 - [7fbf2cb]	Update Docker images used in VMware Event Router
 - [312d726]	Decouple from types.BaseEvent
 - [977d96f]	Update Linter and Unit Test Action
-
-<a name="v0.4.1"></a>
-## [Release v0.4.1](https://github.com/vmware-samples/vcenter-event-broker-appliance/compare/v0.4.0...v0.4.1)
-
-> Release Date: 2020-06-10
-
-### 📖 Commits
-
-- [4bf45d7]	Updating docs to reflect changes with Proxy and SSH
 - [a886138]	Fixing VEBA_VERSION reference for VM Notes
 - [d126374]	Fix Pre-Release Image Build
 - [d1c4496]	Bump version to v0.4.1 for release
@@ -166,15 +211,6 @@
 - [d5e8f7e]	Add Action for Event Router Unit Tests on PRs
 - [fc83d68]	Add Action to reject PRs against master
 - [783fd0e]	Add Github Action for Docker Pre-Release
-- [832642f]	Support datastore custom attribute as To: address
-
-<a name="v0.4.0"></a>
-## [Release v0.4.0](https://github.com/vmware-samples/vcenter-event-broker-appliance/compare/v0.3.0...v0.4.0)
-
-> Release Date: 2020-05-11
-
-### 📖 Commits
-
 - [70d47df]	Fixing minor typo in README
 - [2659ced]	Use linux-esx as its optmized on VMware-based Hypervisor
 - [e521d4a]	tndf upgrade isn't needed due to newer Photon OS image
@@ -196,6 +232,7 @@
 - [459e589]	Delete greetings workflow
 - [db43ef7]	Add input entry batching
 - [65c71b8]	Add PagerDuty Python Example (tested with VEBA v0.3, vCenter 6.7 with VMPowerOn/Off Events)
+- [832642f]	Support datastore custom attribute as To: address
 - [c0caac1]	Consistent use of Notes in markdown files
 - [10e14a8]	Fix VMware Event Router image pull to support air-gap scenario
 - [7af6632]	Add Docker image for :VERSION tag
